@@ -1,0 +1,23 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.placecage.com/gif/1200/850');">
+  <div class="banner-content">
+    <h1><%= @cocktail.name %></h1>
+    <ul>
+      <% @cocktail.doses.each do |dose| %>
+      <li><%= dose.ingredient.name %> - <%= dose.description %></li>
+      <% end %>
+    </ul>
+    <%= link_to 'Back', cocktails_path, {class: "btn btn-danger"} %>
+  </div>
+</div>
+
+<div class="container padded">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.input :description %>
+    <%= f.input :ingredient, collection: Ingredient.all %>
+    <%= f.submit "add a dosage", class: "btn btn-danger" %>
+<% end %>
+
+
+  </div>
+</div>
