@@ -1,14 +1,13 @@
 <h1 class="text-center">MR COCKTAIL</h1>
-
-  </div class="col-sm-offset-5">
+<div class="text-center">
   <%= link_to 'New Cocktail', new_cocktail_path, {class: "btn btn-danger"} %>
   </div>
 
-<div class="container">
+<div class="container padded">
   <div class="row">
     <% @cocktails.each do |c| %>
     <div class="col-xs-12 col-sm-4">
       <%= render "card", cocktail: c %>
     </div>
     <% end %>
-
+</div>
